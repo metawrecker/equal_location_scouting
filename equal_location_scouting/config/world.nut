@@ -1,3 +1,3 @@
-::logWarning("Setting vision radius..");
+//::logWarning("Setting vision radius..");
 
-::Const.World.Settings.Vision = 250;
+//::Const.World.Settings.Vision = 250;
