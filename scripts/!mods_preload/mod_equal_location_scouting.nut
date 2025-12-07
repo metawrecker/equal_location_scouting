@@ -1,7 +1,7 @@
 ::EqualLocationScouting <- {
 	ID = "mod_equal_location_scouting",
-	Name = "Equal Location Scouting",
-	Version = "1.0.0"
+	Name = "Full Unique Location Visibility",
+	Version = "1.0.1"
 }
 
 local requiredMods = [
@@ -13,11 +13,6 @@ local requiredMods = [
 ::EqualLocationScouting.HooksMod <- ::Hooks.register(::EqualLocationScouting.ID, ::EqualLocationScouting.Version, ::EqualLocationScouting.Name);
 ::EqualLocationScouting.HooksMod.require(requiredMods);
 
-// ::EqualLocationScouting.userGivesPermission <- function (settingName)
-// {
-// 	return ::EqualLocationScouting.Mod.ModSettings.getSetting(settingName).getValue();
-// }
-
 local modLoadOrder = [];
 foreach (mod in requiredMods) {
 	local idx = mod.find(" ");
@@ -25,16 +20,12 @@ foreach (mod in requiredMods) {
 }
 
 ::EqualLocationScouting.HooksMod.queue(modLoadOrder, function() {
-	::EqualLocationScouting.Mod <- ::MSU.Class.Mod(::EqualLocationScouting.ID, ::EqualLocationScouting.Version, ::EqualLocationScouting.Name);
+ 	local mod = ::MSU.Class.Mod(::EqualLocationScouting.ID, ::EqualLocationScouting.Version, ::EqualLocationScouting.Name);
+	::EqualLocationScouting.Mod	<- mod;
 
-	//local generalPage = ::EqualLocationScouting.Mod.ModSettings.addPage("Page", "General");
-	//local useModdedVisibilitySetting = generalPage.addBooleanSetting("SetVisibility100", true, "Set legendary loc visibility to 100%");
-	//80 - 100 multiply by 5 to be a range of 400 - vanillas 500
-	// local visibilityRadiusSetting = generalPage.addRangeSetting("VisibilityRadius", 80, 80, 100, 1, "World map vision radius (view only)");
-	// visibilityRadiusSetting.lock();
+	mod.Registry.addModSource(::MSU.System.Registry.ModSourceDomain.GitHub, "https://github.com/metawrecker/equal_location_scouting");
+	mod.Registry.setUpdateSource(::MSU.System.Registry.ModSourceDomain.GitHub);
+	mod.Registry.addModSource(::MSU.System.Registry.ModSourceDomain.NexusMods, "https://www.nexusmods.com/battlebrothers/mods/937");
 
-	//::include("equal_location_scouting/config/world");
-	//::include("equal_location_scouting/player_party");
-	//::include("equal_location_scouting/config/world_entity_common");
-	::include("equal_location_scouting/world_entity");
+	::include("equal_location_scouting/location");
 });
