@@ -3,7 +3,6 @@
 .vscode/
 brushes/
 gfx/mods/brushes/
-*.zip
 .editorconfig
 .utils/
 .bbbuilder/
