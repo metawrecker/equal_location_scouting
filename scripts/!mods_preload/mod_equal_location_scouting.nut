@@ -1,7 +1,7 @@
 ::EqualLocationScouting <- {
 	ID = "mod_equal_location_scouting",
 	Name = "Full Unique Location Visibility",
-	Version = "1.0.1"
+	Version = "1.0.2"
 }
 
 local requiredMods = [

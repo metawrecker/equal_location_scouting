@@ -8,23 +8,17 @@
 			return;
 		}
 
-		local acceptableLocationTypes = [
-			this.Const.World.LocationType.Unique,
-			this.Const.World.LocationType.Unique | this.Const.World.LocationType.Lair
-		];
+		if (this.isLocationType(this.Const.World.LocationType.Unique)) {
+			local visibility = this.getVisibilityMult();
 
-		local locationMatch = acceptableLocationTypes.find(this.getLocationType());
+			//skip hidden locations like the Hunting Grounds and Artifact Reliquery until they're enabled via vanilla gameplay
+			if (visibility > 0.0 && visibility <= 1.0) {
+				this.setVisibility(1.0);
 
-		if (locationMatch == null) {
-			return;
-		}
+				local vanillaVisibility = (this.getVisibilityMult() * this.Const.World.TerrainTypeVisibilityMult[this.getTile().Type]) * 100;
 
-		local visibility = this.getVisibilityMult();
-
-		//skip hidden locations like the Hunting Grounds and Artifact Reliquery until they're enabled via vanilla gameplay
-		if (visibility > 0.0) {
-			this.setVisibility(1.0);
-			::logInfo("Set " + this.m.Name + " to 100% visibility");
+				::logInfo(this.m.Name + " set to 100% visibility. Vanilla visibility was " + vanillaVisibility + "%.");
+			}
 		}
     }
 });
