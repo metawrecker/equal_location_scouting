@@ -23,8 +23,8 @@ foreach (mod in requiredMods) {
  	local mod = ::MSU.Class.Mod(::EqualLocationScouting.ID, ::EqualLocationScouting.Version, ::EqualLocationScouting.Name);
 	::EqualLocationScouting.Mod	<- mod;
 
-	mod.Registry.addModSource(::MSU.System.Registry.ModSourceDomain.GitHub, "https://github.com/metawrecker/equal_location_scouting");
-	mod.Registry.setUpdateSource(::MSU.System.Registry.ModSourceDomain.GitHub);
+	// mod.Registry.addModSource(::MSU.System.Registry.ModSourceDomain.GitHub, "https://github.com/metawrecker/equal_location_scouting");
+	// mod.Registry.setUpdateSource(::MSU.System.Registry.ModSourceDomain.GitHub);
 	mod.Registry.addModSource(::MSU.System.Registry.ModSourceDomain.NexusMods, "https://www.nexusmods.com/battlebrothers/mods/937");
 
 	::include("equal_location_scouting/location");
