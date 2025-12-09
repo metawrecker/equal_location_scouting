@@ -7,4 +7,4 @@ This mod should be fine to add or remove at any time. The unique location visibi
 Pre-reqs:
 modding script hooks
 Modern Hooks
-Modding Standards and Utilities (MSUI)
+Modding Standards and Utilities (MSU)
